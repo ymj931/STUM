@@ -1,0 +1,76 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.parse.starter.Login"
+    android:background="#ffffff">
+
+    <EditText
+        android:id="@+id/useremail"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:inputType="textEmailAddress"
+        android:hint="아이디"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:textSize="7pt"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        />
+
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:inputType="textPassword"
+        android:hint="비밀번호"
+        android:textSize="7pt"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:background="@null"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/useremail"
+        />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/password"
+        android:layout_alignLeft="@id/password"
+        android:background="#4A66AC"
+        android:text="로그인"
+        />
+
+    <Button
+        android:id="@+id/signUp"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/password"
+        android:layout_toRightOf="@id/login"
+        android:text="회원가입"
+        android:background="#4A66AC"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자동 로그인"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/signUp"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@id/login"
+        />
+
+</RelativeLayout>
+<!-- From: file:/C:/AndroidProject/Parse-Starter-Project-1.9.2/ParseStarterProject/res/layout/login.xml -->

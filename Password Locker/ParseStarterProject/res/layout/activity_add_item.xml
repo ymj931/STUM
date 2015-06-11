@@ -1,0 +1,102 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.parse.starter.AddItem"
+    android:background="#ffffff">
+
+    <EditText
+        android:id="@+id/site_name"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:inputType="text"
+        android:hint="사이트 이름"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:textSize="7pt"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        />
+
+
+    <EditText
+        android:id="@+id/site_id"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:inputType="text"
+        android:hint="ID"
+        android:textSize="7pt"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:background="@null"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/site_name"
+        />
+
+    <EditText
+        android:id="@+id/site_pw"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:textSize="7pt"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:background="@null"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@id/site_id"
+        android:layout_below="@+id/site_id"
+        />
+
+    <Button
+        android:id="@+id/auto_generate"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/site_id"
+        android:layout_toLeftOf="@+id/toggle"
+        android:background="#4A66AC"
+        />
+
+    <ToggleButton
+        android:id="@+id/toggle"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/site_id"
+        android:layout_alignRight="@id/site_id"
+        android:background="#4A66AC"
+        />
+
+    <EditText
+        android:id="@+id/site_memo"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:inputType="textMultiLine"
+        android:textSize="7pt"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@id/site_id"
+        android:layout_below="@+id/site_pw"
+        />
+
+    <Button
+        android:id="@+id/add_item"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/site_memo"
+        android:layout_alignRight="@id/site_id"
+        android:background="#4A66AC"
+        android:text="등록"
+        />
+
+</RelativeLayout>

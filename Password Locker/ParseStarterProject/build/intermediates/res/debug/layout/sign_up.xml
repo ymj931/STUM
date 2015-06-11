@@ -1,0 +1,84 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.parse.starter.SignUp"
+    android:background="#ffffff">
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:inputType="text"
+        android:hint="이름"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:textSize="7pt"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        />
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:inputType="textEmailAddress"
+        android:hint="E-mail"
+        android:textSize="7pt"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:background="@null"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/username"
+        />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:inputType="textPassword"
+        android:hint="비밀번호"
+        android:textSize="7pt"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:background="@null"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/email"
+        />
+
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:inputType="textPassword"
+        android:hint="비밀번호 확인"
+        android:textSize="7pt"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:background="@null"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/password"
+        />
+
+    <Button
+        android:id="@+id/signUp2"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/password2"
+        android:layout_alignRight="@id/password"
+        android:background="#4A66AC"
+        android:text="회원가입"
+        />
+
+</RelativeLayout>
+<!-- From: file:/C:/AndroidProject/Parse-Starter-Project-1.9.2/ParseStarterProject/res/layout/sign_up.xml -->
