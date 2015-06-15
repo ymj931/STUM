@@ -5,10 +5,30 @@
     tools:context="com.parse.starter.MainActivity">
 
     <item
+        android:id="@+id/menu_search"
+        android:title="검색"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="always"
+        android:actionViewClass="android.widget.SearchView"
+        />
+
+    <item
         android:id="@+id/add_list"
         android:title="Add"
         android:icon="@android:drawable/ic_menu_add"
         app:showAsAction="ifRoom"
         />
+
+    <item
+        android:id="@+id/change_masterPW"
+        android:title="마스터 PW 변경"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/get_my_data"
+        android:title="내 데이터 가져오기"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
 
 </menu>

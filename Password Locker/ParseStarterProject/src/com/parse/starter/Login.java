@@ -24,6 +24,16 @@ public class Login extends ActionBarActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            // do stuff with the user
+            Intent intent = new Intent(Login.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            // show the signup or login screen
+        }
+
         email = (EditText) findViewById(R.id.useremail);
         password = (EditText) findViewById(R.id.password);
 
@@ -31,6 +41,9 @@ public class Login extends ActionBarActivity implements View.OnClickListener{
         signUp.setOnClickListener(this);
         Login = (Button) findViewById(R.id.login);
         Login.setOnClickListener(this);
+
+
+
     }
 
     @Override
@@ -55,7 +68,6 @@ public class Login extends ActionBarActivity implements View.OnClickListener{
                                     // If user exist and authenticated, send user to Welcome.class
                                     Intent intent = new Intent(Login.this, MainActivity.class);
                                     startActivity(intent);
-
                                     finish();
                                 } else {
                                     Toast.makeText(getApplicationContext(),

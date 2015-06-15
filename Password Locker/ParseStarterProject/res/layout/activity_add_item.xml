@@ -72,6 +72,8 @@
         android:layout_marginTop="10dp"
         android:layout_below="@+id/site_id"
         android:layout_alignRight="@id/site_id"
+        android:textOn="on"
+        android:textOff="off"
         android:background="#4A66AC"
         />
 

@@ -2,13 +2,16 @@ package com.parse.starter;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,6 +29,8 @@ public class MainActivity extends ActionBarActivity {
     private ListView listView;
     private ArrayAdapter<String> adapter;
 
+    private EditText search;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +38,7 @@ public class MainActivity extends ActionBarActivity {
 
         listView = (ListView) findViewById(R.id.listview);
 
-        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1);
+        adapter = new ArrayAdapter<String>(this, R.layout.listview);
         listView = (ListView) findViewById(R.id.listview);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(onClickListItem);
@@ -70,32 +75,63 @@ public class MainActivity extends ActionBarActivity {
             Toast.makeText(getApplicationContext(), adapter.getItem(arg2), Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(MainActivity.this, ListInfo.class);
-
+            intent.putExtra("listName", adapter.getItem(arg2));
+            startActivity(intent);
         }
     };
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        adapter.clear();
+
+        ParseUser user = ParseUser.getCurrentUser();
+        ParseQuery<ParseObject> query2 = ParseQuery.getQuery("Passwords");
+        query2.addAscendingOrder("name");
+        //query2.whereEqualTo("User", user);
+
+        query2.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> List, ParseException e) {
+
+                if (e == null) {
+                    for (int i = 0; i < List.size(); i++) {
+                        ParseObject course = List.get(i);
+
+                        String temp = course.getString("name");
+                        adapter.add(temp);
+
+                    }
+                } else {
+                    Log.d("#######", "Error: " + e.getMessage());
+                }
+            }
+        });
+    }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        MenuItem searchViewItem = menu.findItem(R.id.menu_search);
+        SearchView searchView = (SearchView) searchViewItem.getActionView();
+        ActionBar.LayoutParams params = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
+        searchView.setLayoutParams(params);
+        searchViewItem.expandActionView();
+
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch(item.getItemId()) {
+            case R.id.add_list:
+                Intent i = new Intent(MainActivity.this, AddItem.class);
+                startActivity(i);
+                finish();
+                return true;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.add_list) {
-            Intent i = new Intent(MainActivity.this, AddItem.class);
-            startActivity(i);
-            finish();
-
-            return true;
         }
 
         return super.onOptionsItemSelected(item);
